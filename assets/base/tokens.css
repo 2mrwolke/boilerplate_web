@@ -1,0 +1,66 @@
+
+/* tokens.css — design tokens (theme variables) */
+@layer base {
+  :root {
+  color-scheme: light dark;
+    --sidebar-left-w: 240px;    /* left sidebar width */
+    --sidebar-right-w: 240px;   /* right sidebar width */
+
+    --bg: #ffffff;
+    --fg: #111111;
+    --border: rgba(0,0,0,0.18);
+    --outline: #3b82f6;
+
+    --card-bg: #fafafa; /* general surface */
+    /* Spacing scale */
+    --space-2: 0.5rem;
+    --space-4: 1rem;
+    --space-6: 1.5rem;
+    --space-8: 2rem;
+    --space-12: 3rem;
+
+    /* Radii */
+    --radius-s: 4px;
+    --radius-m: 8px;
+    --radius-l: 12px;
+
+    /* Shadows */
+    --shadow-1: 0 1px 2px rgba(0,0,0,0.08), 0 1px 1px rgba(0,0,0,0.06);
+    --shadow-2: 0 8px 24px rgba(0,0,0,0.12);
+
+    /* Type scale */
+    --font-size-xs: 0.75rem;
+    --font-size-s: 0.875rem;
+    --font-size-m: 1rem;
+    --font-size-l: 1.25rem;
+    --font-size-xl: 1.5rem;
+    --line-tight: 1.2;
+    --line-normal: 1.5;
+    --line-relaxed: 1.7;
+
+    /* Containers */
+    --container-gap: var(--space-6);
+    --area-pad: var(--space-6);
+
+  
+  --stack-gap: var(--space-4);
+  --clamp-lines: 2;
+  --u-gap: var(--space-4);
+  --surface: var(--card-bg);
+  --text: var(--fg);
+  --muted: color-mix(in oklab, var(--fg) 60%, var(--bg));
+  --accent: var(--outline);
+}
+
+  @media (prefers-color-scheme: dark) {
+    :root { --muted: color-mix(in oklab, var(--fg) 70%, var(--bg)); }
+    :root {
+  color-scheme: light dark;
+      --bg: #0b0b0b;
+      --fg: #e8e8e8;
+      --border: rgba(255,255,255,0.22);
+      --outline: #60a5fa;
+      --card-bg: #141414;
+    }
+  }
+}

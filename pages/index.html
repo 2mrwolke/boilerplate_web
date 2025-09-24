@@ -1,0 +1,105 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Layered AI-Friendly Baseline</title>
+<meta content="light dark" name="color-scheme"/>
+<!-- LAYERED CSS (order doesn't matter as long as reset.css defines layer order; we still keep a sensible order) -->
+<link href="../assets/base/reset.css" rel="stylesheet"/>
+<link href="../assets/base/tokens.css" rel="stylesheet"/>
+<link href="../assets/base/layout.css" rel="stylesheet"/>
+<link href="../assets/areas/header.css" rel="stylesheet"/>
+<link href="../assets/areas/main.css" rel="stylesheet"/>
+<link href="../assets/areas/sidebar-left.css" rel="stylesheet"/>
+<link href="../assets/areas/sidebar-right.css" rel="stylesheet"/>
+<link href="../assets/areas/footer.css" rel="stylesheet"/>
+<link href="../assets/components/components.css" rel="stylesheet"/>
+<link href="../assets/utilities/utilities.css" rel="stylesheet"/>
+</head>
+<body>
+<a class="u-skip-link skip-link" href="#main">Skip to main content</a>
+<!-- [AGENT HOOK] HEADER-START -->
+<header class="header grid_element">
+<div class="hdr-container u-stack" style="--u-gap:0.5rem">
+<strong>Header</strong>
+<!-- [AGENT HOOK] HEADER-FEATURE-SLOT -->
+
+<!-- Example:
+  <section class="hdr-feature cmp-card">
+    <h2 class="hdr-title">Example hdr feature</h2>
+    <p class="hdr-desc cmp-clamp">This is a short example using .cmp-* primitives.</p>
+    <a href="#" class="cmp-button cmp-button--ghost">Learn more</a>
+  </section>
+-->
+<!-- AGENT: add header feature here (e.g., nav) --></div>
+</header>
+<!-- [AGENT HOOK] HEADER-END -->
+<!-- [AGENT HOOK] MAIN-START -->
+<main class="main grid_element" id="main">
+<div class="main-container">
+<h1>Main</h1>
+<!-- [AGENT HOOK] MAIN-FEATURE-SLOT -->
+
+<!-- Example:
+  <section class="main-feature cmp-card">
+    <h2 class="main-title">Example main feature</h2>
+    <p class="main-desc cmp-clamp">This is a short example using .cmp-* primitives.</p>
+    <a href="#" class="cmp-button cmp-button--ghost">Learn more</a>
+  </section>
+-->
+<!-- AGENT: add main feature here (e.g., card, section) --></div>
+</main>
+<!-- [AGENT HOOK] MAIN-END -->
+<!-- [AGENT HOOK] SIDEBAR-LEFT-START -->
+<aside aria-labelledby="sbl-heading" class="sidebar-left grid_element"><h2 class="u-visually-hidden" id="sbl-heading">Primary sidebar</h2>
+<div class="sbl-container">
+<strong>Left Sidebar</strong>
+<!-- [AGENT HOOK] SBL-FEATURE-SLOT -->
+
+<!-- Example:
+  <section class="sbl-feature cmp-card">
+    <h2 class="sbl-title">Example sbl feature</h2>
+    <p class="sbl-desc cmp-clamp">This is a short example using .cmp-* primitives.</p>
+    <a href="#" class="cmp-button cmp-button--ghost">Learn more</a>
+  </section>
+-->
+<!-- AGENT: add left sidebar feature here --></div>
+</aside>
+<!-- [AGENT HOOK] SIDEBAR-LEFT-END -->
+<!-- [AGENT HOOK] SIDEBAR-RIGHT-START -->
+<aside aria-labelledby="sbr-heading" class="sidebar-right grid_element"><h2 class="u-visually-hidden" id="sbr-heading">Secondary sidebar</h2>
+<div class="sbr-container">
+<strong>Right Sidebar</strong>
+<!-- [AGENT HOOK] SBR-FEATURE-SLOT -->
+
+<!-- Example:
+  <section class="sbr-feature cmp-card">
+    <h2 class="sbr-title">Example sbr feature</h2>
+    <p class="sbr-desc cmp-clamp">This is a short example using .cmp-* primitives.</p>
+    <a href="#" class="cmp-button cmp-button--ghost">Learn more</a>
+  </section>
+-->
+<!-- AGENT: add right sidebar feature here --></div>
+</aside>
+<!-- [AGENT HOOK] SIDEBAR-RIGHT-END -->
+<!-- [AGENT HOOK] FOOTER-START -->
+<footer class="footer grid_element">
+<div class="ftr-container">
+<small>Footer</small>
+<!-- [AGENT HOOK] FTR-FEATURE-SLOT -->
+
+<!-- Example:
+  <section class="ftr-feature cmp-card">
+    <h2 class="ftr-title">Example ftr feature</h2>
+    <p class="ftr-desc cmp-clamp">This is a short example using .cmp-* primitives.</p>
+    <a href="#" class="cmp-button cmp-button--ghost">Learn more</a>
+  </section>
+-->
+<!-- AGENT: add footer feature here --></div>
+</footer>
+<!-- [AGENT HOOK] FOOTER-END -->
+</body>
+</html>

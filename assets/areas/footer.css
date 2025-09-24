@@ -1,0 +1,27 @@
+
+/* footer.css — footer styles */
+
+  /* HOW TO ADD A FEATURE (LLM-friendly)
+     1) In pages/index.html, find: <!-- [AGENT HOOK] FTR-FEATURE-SLOT -->
+     2) Insert markup using classes prefixed with .ftr-*
+        Example:
+          <section class="ftr-feature cmp-card">
+            <h2 class="ftr-title">Feature title</h2>
+            <p class="ftr-desc cmp-clamp">Two-line description…</p>
+            <button class="cmp-button">Action</button>
+          </section>
+     3) Style below using only .ftr-* selectors (and .cmp-* utilities).
+  */
+@layer area-footer {
+  /* AGENT HOOKS:
+     - Insert new footer feature markup inside <!-- [AGENT HOOK] FTR-FEATURE-SLOT -->
+     - Style with .ftr-* classes below.
+  */
+  .ftr-container { display: grid; gap: 0.5rem; }
+  .ftr-container { /* AGENT: footer feature styles here */ }
+}
+
+/* --- Added: performance hints --- */
+@layer area-footer {
+  .footer { content-visibility: auto; contain-intrinsic-size: 600px 800px; }
+}

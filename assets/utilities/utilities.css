@@ -1,0 +1,93 @@
+
+/* utilities.css — single-purpose helpers */
+@layer utilities {
+  /* Visually hide but keep for screen readers */
+  .u-visually-hidden {
+    position: absolute !important;
+    width: 1px; height: 1px;
+    padding: 0; margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border: 0;
+  }
+  /* Alias */
+  /* Alias */
+  .u-only-screenreaders {
+    position: absolute !important;
+    width: 1px; height: 1px;
+    padding: 0; margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  /* Make an element only visible when focused (e.g., skip link) */
+  .u-sr-only-focusable:not(:focus):not(:focus-within) {
+    position: absolute !important;
+    width: 1px; height: 1px;
+    padding: 0; margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  /* Skip link styling */
+  .skip-link {
+    position: absolute;
+    top: 0.25rem; left: -9999px;
+    padding: var(--space-4) var(--space-6);
+    background: var(--card-bg);
+    color: var(--fg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-m);
+    text-decoration: none;
+    box-shadow: var(--shadow-1);
+    z-index: 1000;
+  }
+  .skip-link:focus, .skip-link:focus-visible {
+    left: 0.25rem;
+    outline: 2px solid var(--outline);
+    outline-offset: 2px;
+  }
+
+  /* Stack utility */
+  .u-stack { display: grid; gap: var(--u-gap, var(--space-4)); }
+}
+
+
+/* --- Added utilities: skip link + clamp + stack spacing --- */
+@layer utilities {
+  /* Backward-compatible alias: .skip-link will adopt .u-skip-link styles */
+  .u-skip-link,
+  .skip-link {
+    position: absolute;
+    inset-inline-start: 0.5rem;
+    inset-block-start: 0.5rem;
+    padding: var(--space-4) var(--space-6);
+    background: var(--surface);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-m);
+    text-decoration: none;
+    box-shadow: var(--shadow-1);
+    transform: translateX(-150%);
+  }
+  .u-skip-link:focus,
+  .skip-link:focus {
+    transform: translateX(0);
+  }
+
+  /* Stack layout helper using tokenized gap */
+  .u-stack > * + * { margin-block-start: var(--stack-gap); }
+
+  /* Line clamp utility (uses --clamp-lines) */
+  .u-clamp {
+    display: -webkit-box;
+    -webkit-line-clamp: var(--clamp-lines);
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}

@@ -1,0 +1,27 @@
+
+/* sidebar-right.css — right sidebar styles */
+
+  /* HOW TO ADD A FEATURE (LLM-friendly)
+     1) In pages/index.html, find: <!-- [AGENT HOOK] SBR-FEATURE-SLOT -->
+     2) Insert markup using classes prefixed with .sbr-*
+        Example:
+          <section class="sbr-feature cmp-card">
+            <h2 class="sbr-title">Feature title</h2>
+            <p class="sbr-desc cmp-clamp">Two-line description…</p>
+            <button class="cmp-button">Action</button>
+          </section>
+     3) Style below using only .sbr-* selectors (and .cmp-* utilities).
+  */
+@layer area-sidebar-right {
+  /* AGENT HOOKS:
+     - Insert new right sidebar feature markup inside <!-- [AGENT HOOK] SBR-FEATURE-SLOT -->
+     - Style with .sbr-* classes below.
+  */
+  .sbr-container { display: grid; gap: 0.75rem; }
+  .sbr-container { /* AGENT: right sidebar feature styles here */ }
+}
+
+/* --- Added: performance hints --- */
+@layer area-sidebar-right {
+  .sidebar-right { content-visibility: auto; contain-intrinsic-size: 600px 800px; }
+}

@@ -1,0 +1,17 @@
+{
+  "name": "llm-ready-baseline",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Layered HTML+CSS baseline with LLM-friendly rules and Stylelint",
+  "scripts": {
+    "lint:css": "stylelint \"assets/**/*.css\"",
+    "lint:css:fix": "stylelint \"assets/**/*.css\" --fix",
+    "check:tokens": "node tools/check-tokens.mjs"
+  },
+  "devDependencies": {
+    "stylelint": "^16.9.0",
+    "stylelint-config-standard": "^36.0.0",
+    "stylelint-order": "^6.0.4",
+    "stylelint-declaration-strict-value": "^1.9.2"
+  }
+}

@@ -1,0 +1,27 @@
+
+/* main.css — main area styles */
+
+  /* HOW TO ADD A FEATURE (LLM-friendly)
+     1) In pages/index.html, find: <!-- [AGENT HOOK] MAIN-FEATURE-SLOT -->
+     2) Insert markup using classes prefixed with .main-*
+        Example:
+          <section class="main-feature cmp-card">
+            <h2 class="main-title">Feature title</h2>
+            <p class="main-desc cmp-clamp">Two-line description…</p>
+            <button class="cmp-button">Action</button>
+          </section>
+     3) Style below using only .main-* selectors (and .cmp-* utilities).
+  */
+@layer area-main {
+  /* AGENT HOOKS:
+     - Insert new main feature markup inside <!-- [AGENT HOOK] MAIN-FEATURE-SLOT -->
+     - Style with .main-* classes below.
+  */
+  .main-container { display: grid; gap: 1rem; }
+  .main-container { /* AGENT: main feature styles here */ }
+}
+
+/* --- Added: performance hints --- */
+@layer area-main {
+  .main { content-visibility: auto; contain-intrinsic-size: 600px 800px; }
+}

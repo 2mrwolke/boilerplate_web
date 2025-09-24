@@ -1,0 +1,33 @@
+/* reset.css — minimal reset + LAYER ORDER
+   IMPORTANT: This line defines the cascade layer order for all styles loaded later.
+*/
+@layer reset, base, layout, area-header, area-main, area-sidebar-left, area-sidebar-right, area-footer, components, utilities;
+
+@layer reset {
+  /* Box sizing */
+  *, *::before, *::after { box-sizing: border-box; }
+
+  /* Base element hygiene */
+  :where(h1,h2,h3,h4,h5,h6,p,figure) { margin: 0; }
+  html, body { height: 100%; }
+
+  /* Global focus visibility */
+  :where(:focus-visible) {
+    outline: 2px solid var(--outline);
+    outline-offset: 2px;
+  }
+
+  @media (prefers-contrast: more) {
+    :where(:focus-visible) { outline-width: 3px; }
+  }
+
+  /* Reduced motion: honor user preference without !important */
+  @media (prefers-reduced-motion: reduce) {
+    html:focus-within { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation: none;
+      transition: none;
+      scroll-behavior: auto;
+    }
+  }
+}

@@ -1,0 +1,31 @@
+
+/* header.css — header area styles */
+
+  /* HOW TO ADD A FEATURE (LLM-friendly)
+     1) In pages/index.html, find: <!-- [AGENT HOOK] HEADER-FEATURE-SLOT -->
+     2) Insert markup using classes prefixed with .hdr-*
+        Example:
+          <section class="hdr-feature cmp-card">
+            <h2 class="hdr-title">Feature title</h2>
+            <p class="hdr-desc cmp-clamp">Two-line description…</p>
+            <button class="cmp-button">Action</button>
+          </section>
+     3) Style below using only .hdr-* selectors (and .cmp-* utilities).
+  */
+@layer area-header {
+  /* AGENT HOOKS:
+     - Insert new header feature markup inside <!-- [AGENT HOOK] HEADER-FEATURE-SLOT --> in index.html
+     - Style with .hdr-* classes below.
+  */
+  .hdr-container { display: grid; gap: 0.5rem; }
+  .hdr-container { /* AGENT: header feature styles here */ }
+  /* Example (optional):
+  .hdr-nav { display:flex; gap:1rem; }
+  .hdr-link:where(:link,:visited){ text-decoration:none; color:var(--fg); }
+  */
+}
+
+/* --- Added: performance hints --- */
+@layer area-header {
+  .header { content-visibility: auto; contain-intrinsic-size: 600px 800px; }
+}

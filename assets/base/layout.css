@@ -1,0 +1,135 @@
+
+/* layout.css — grid layout + accessibility (PRESERVE AREAS) */
+@layer layout {
+  /* =============================
+     EDIT BREAKPOINTS HERE (single source of truth)
+       S (header appears):   360px
+       M (left sidebar):     780px
+       L (right sidebar):    1024px
+     Update these numeric values directly in the media queries below.
+     ============================= */
+
+  body {
+    min-height: 100svh;
+    margin: 0;
+    color: var(--fg);
+    background: var(--bg);
+    font: 1.2rem/1.4 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+
+    /* Smallest layout: main only */
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+      "mn mn mn"
+      "mn mn mn"
+      "mn mn mn";
+
+    padding:
+      max(0px, env(safe-area-inset-top))
+      max(0px, env(safe-area-inset-right))
+      max(0px, env(safe-area-inset-bottom))
+      max(0px, env(safe-area-inset-left));
+  }
+
+  /* Shared structure/visual frame for all areas */
+  .grid_element {
+    display: grid;
+    place-content: center;
+    border: 1px solid var(--border);
+    padding: 1rem;
+  }
+
+  /* Area placements (do not change without intent) */
+  .header        { grid-area: hd; display: none; }
+  .main          { grid-area: mn; }
+  .sidebar-left  { grid-area: sbl; display: none; }
+  .sidebar-right { grid-area: sbr; display: none; }
+  .footer        { grid-area: ft; display: none; }
+
+  /* Accessibility */
+  .skip-link {
+    position: absolute;
+    inset-inline-start: 0.5rem;
+    inset-block-start: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    background: var(--bg);
+    color: var(--fg);
+    border: 1px solid var(--border);
+    transform: translateY(-150%);
+    transition: transform 0.2s ease;
+    z-index: 1000;
+  }
+  .skip-link:focus-visible { transform: translateY(0); outline: 3px solid var(--outline); }
+  :focus-visible { outline: 3px solid var(--outline); outline-offset: 2px; }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+  }
+
+  /* --- Responsive steps (PRESERVE) --- */
+
+  /* introduce header */
+  @media screen and (min-width: 360px) and (min-height: 360px){
+    body {
+      grid-template-columns: var(--sidebar-left-w) 1fr var(--sidebar-right-w);
+      grid-template-rows: auto 1fr auto;
+      grid-template-areas:
+        "hd hd hd"
+        "mn mn mn"
+        "mn mn mn";
+    }
+    .header { display: grid; }
+  }
+
+  /* introduce footer */
+  @media screen and (min-width: 360px) and (min-height: 512px){
+    body{
+      grid-template-columns: var(--sidebar-left-w) 1fr var(--sidebar-right-w);
+      grid-template-rows: auto 1fr auto;
+      grid-template-areas:
+        "hd hd hd"
+        "mn mn mn"
+        "ft ft ft";
+    }
+    .footer { display: grid; }
+  }
+
+  /* introduce left sidebar */
+  @media screen and (min-width: 780px){
+    body{
+      grid-template-columns: var(--sidebar-left-w) 1fr var(--sidebar-right-w);
+      grid-template-rows: auto 1fr auto;
+      grid-template-areas:
+        "sbl hd  hd"
+        "sbl mn  mn"
+        "sbl ft  ft";
+    }
+    .sidebar-left { display: grid; }
+  }
+
+  /* introduce right sidebar */
+  @media screen and (min-width: 1024px){
+    body {
+      grid-template-columns: var(--sidebar-left-w) 1fr var(--sidebar-right-w);
+      grid-template-rows: auto 1fr auto;
+      grid-template-areas:
+        "sbl hd  hd"
+        "sbl mn  sbr"
+        "ft  ft  ft";
+    }
+    .sidebar-right { display: grid; }
+  }
+}
+
+
+/* --- Added: container-type and rail toggles --- */
+@layer layout {
+  body { container-type: inline-size; }
+
+  /* Toggle helpers: apply these classes on <body> to switch rails */
+  body.has-left-rail .sidebar-left  { display: grid; }
+  body.has-right-rail .sidebar-right { display: grid; }
+  body.no-left-rail .sidebar-left { display: none; }
+  body.no-right-rail .sidebar-right { display: none; }
+}

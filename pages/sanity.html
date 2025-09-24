@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Visual Sanity Check</title>
+<meta content="light dark" name="color-scheme"/>
+<link href="../assets/base/reset.css" rel="stylesheet"/>
+<link href="../assets/base/tokens.css" rel="stylesheet"/>
+<link href="../assets/base/layout.css" rel="stylesheet"/>
+<link href="../assets/areas/header.css" rel="stylesheet"/>
+<link href="../assets/areas/main.css" rel="stylesheet"/>
+<link href="../assets/areas/sidebar-left.css" rel="stylesheet"/>
+<link href="../assets/areas/sidebar-right.css" rel="stylesheet"/>
+<link href="../assets/areas/footer.css" rel="stylesheet"/>
+<link href="../assets/components/components.css" rel="stylesheet"/>
+<link href="../assets/utilities/utilities.css" rel="stylesheet"/>
+</head>
+<body>
+<a class="u-skip-link skip-link" href="#main">Skip to main content</a>
+<header class="header grid_element">
+<div class="hdr-container cmp-stack" style="--stack-gap: var(--space-4)">
+<nav class="cmp-nav">
+<a href="#">Home</a>
+<a href="#">Docs</a>
+<a href="#">About</a>
+</nav>
+<div>
+<button class="cmp-button">Primary</button>
+<button class="cmp-button cmp-button--ghost">Ghost</button>
+</div>
+</div>
+</header>
+<main class="main grid_element" id="main">
+<div class="main-container cmp-stack" style="--stack-gap: var(--space-6)">
+<article class="cmp-card">
+<h1 style="font-size: var(--font-size-xl); line-height: var(--line-tight)">Sanity Page</h1>
+<p class="cmp-clamp" style="--clamp-lines:3">
+          This page renders each area and core components together to catch obvious layout or theme regressions.
+        </p>
+</article>
+<section class="cmp-stack" style="--stack-gap: var(--space-4)">
+<div class="cmp-card"><strong>Card A</strong><p>Quick check.</p></div>
+<div class="cmp-card"><strong>Card B</strong><p>Another card.</p></div>
+</section>
+</div>
+</main>
+<aside aria-labelledby="sbl-heading" class="sidebar-left grid_element"><h2 class="u-visually-hidden" id="sbl-heading">Primary sidebar</h2>
+<div class="sbl-container cmp-stack">
+<div class="cmp-card">Left tools</div>
+<div class="cmp-card">Filters</div>
+</div>
+</aside>
+<aside aria-labelledby="sbr-heading" class="sidebar-right grid_element"><h2 class="u-visually-hidden" id="sbr-heading">Secondary sidebar</h2>
+<div class="sbr-container cmp-stack">
+<div class="cmp-card">Related</div>
+<div class="cmp-card">Meta</div>
+</div>
+</aside>
+<footer class="footer grid_element">
+<div class="ftr-container cmp-stack" style="--stack-gap: var(--space-2)">
+<small>© Example</small>
+<nav class="cmp-nav">
+<a href="#">Privacy</a>
+<a href="#">Terms</a>
+</nav>
+</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,27 @@
+
+/* sidebar-left.css — left sidebar styles */
+
+  /* HOW TO ADD A FEATURE (LLM-friendly)
+     1) In pages/index.html, find: <!-- [AGENT HOOK] SBL-FEATURE-SLOT -->
+     2) Insert markup using classes prefixed with .sbl-*
+        Example:
+          <section class="sbl-feature cmp-card">
+            <h2 class="sbl-title">Feature title</h2>
+            <p class="sbl-desc cmp-clamp">Two-line description…</p>
+            <button class="cmp-button">Action</button>
+          </section>
+     3) Style below using only .sbl-* selectors (and .cmp-* utilities).
+  */
+@layer area-sidebar-left {
+  /* AGENT HOOKS:
+     - Insert new left sidebar feature markup inside <!-- [AGENT HOOK] SBL-FEATURE-SLOT -->
+     - Style with .sbl-* classes below.
+  */
+  .sbl-container { display: grid; gap: 0.75rem; }
+  .sbl-container { /* AGENT: left sidebar feature styles here */ }
+}
+
+/* --- Added: performance hints --- */
+@layer area-sidebar-left {
+  .sidebar-left { content-visibility: auto; contain-intrinsic-size: 600px 800px; }
+}
